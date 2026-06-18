@@ -1,4 +1,6 @@
 ---
+import { getMediaURL } from "../../lib/strapi";
+
 const {
   heading_title,
   background_image,
@@ -8,11 +10,7 @@ const {
 const title = heading_title?.title;
 const sub_title = heading_title?.sub_title;
 
-const baseUrl = "http://localhost:1337";
-
-const imageUrl = background_image?.url
-  ? `${baseUrl}${background_image.url}`
-  : null;
+const imageUrl = getMediaURL(background_image?.url);
 
 const sectionStyle = imageUrl
   ? `background-image: url('${imageUrl}'); background-size: cover; background-position: center;`
