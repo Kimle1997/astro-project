@@ -1,21 +1,16 @@
 ---
 import { getMediaURL } from "../../lib/strapi";
 
-const STRAPI_URL = import.meta.env.PUBLIC_STRAPI_URL;
-
 const {
   heading_title,
-  sub_title,
-  description,
-  about_img,
-  muti_image,
-  button,
-  background_color
+  about_img_right
 } = Astro.props;
 
-const imgUrl = about_img?.url
-  ? `${STRAPI_URL}${about_img.url}`
-  : null;
+const title = heading_title?.title;
+const sub_title = heading_title?.sub_title;
+const description = heading_title?.description;
+
+const imgUrl = getMediaURL(about_img_right?.url);
 ---
 
 <section  class={`about-section section ${background_color}`}>
